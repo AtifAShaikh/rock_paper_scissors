@@ -1,6 +1,27 @@
 var choices = ["r", "p", "s"];
 var userChoice;
 var computerChoice;
+var stats = {
+    wins: 0,
+    losses: 0,
+    ties:0,
+
+    increaseWins: function() {
+        wins++;
+    },
+    increaseLosses: function() {
+        losses++;
+    },
+    increaseTies: function() {
+        ties++;
+    },
+
+    displayStats: function() {
+        alert("wins: " + wins + "losses " + losses+ "ties " + ties);
+    }
+};
+
+
 // var randIndex = Math.floor(Math.random()*3)
 
 function returnRandomNumber(){
