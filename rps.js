@@ -19,7 +19,7 @@ var stats = {
 
     displayStats: function() {
         console.log("test");
-        alert("wins: " + this.wins + " losses " + this.losses+ " ties " + this.ties);
+        alert("Current Stats \nwins: " + this.wins + " \nlosses: " + this.losses+ " \nties: " + this.ties);
 
     }
 };
@@ -27,48 +27,47 @@ var stats = {
 
 // var randIndex = Math.floor(Math.random()*3)
 
-function returnRandomNumber(){
-    return Math.floor(Math.random()*3);
+function returnRandomChoice(){
+    return choices[Math.floor(Math.random()*3)];
 }
 
-alert("welcome to rock paper scissors");
+alert("Welcome to rock paper scissors");
 
 while (playAgain){
 
-
 userChoice = prompt("pick between r, p, s");
-computerChoice = choices[returnRandomNumber()];
+computerChoice = returnRandomChoice();
 
-console.log(userChoice);
-console.log(computerChoice);
+if(userChoice !== "r" || userChoice !== "p" || userChoice !== "s"){
+    userChoice = returnRandomChoice();
+}
 
 if(userChoice === computerChoice){
-    alert("tie");
-
+    alert("TIE, you and the computer both picked " + userChoice);
     stats.increaseTies();
 }
 
 if (userChoice === "r" && computerChoice === "s"){
-    alert("user wins");
+    alert("WINNER, " + userChoice + " beats " + computerChoice);
     stats.increaseWins();
 } else if (userChoice === "s" && computerChoice === "r"){
-    alert("computer wins");
+    alert("LOOSER, " + computerChoice + " beats " + userChoice);
     stats.increaseLosses();
 }
 
 if (userChoice === "p" && computerChoice === "r"){
-    alert("user wins");
+    alert("WINNER, " + userChoice + " beats " + computerChoice);
     stats.increaseWins();
 } else if (userChoice === "r" && computerChoice === "p"){
-    alert("computer wins");
+    alert("LOOSER, " + computerChoice + " beats " + userChoice);
     stats.increaseLosses();
 }
 
 if (userChoice === "s" && computerChoice === "p"){
-    alert("user wins");
+    alert("WINNER, " + userChoice + " beats " + computerChoice);
     stats.increaseWins();
 } else if (userChoice === "p" && computerChoice === "s"){
-    alert("computer wins");
+    alert("LOOSER, " + computerChoice + " beats " + userChoice);
     stats.increaseLosses();
 }
 
